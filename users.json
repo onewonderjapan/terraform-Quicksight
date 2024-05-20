@@ -1,12 +1,12 @@
 [
   {
-    "name": "user_a",
+    "name": "user_c",
     "QuickSight_groups": [
       {
-        "GroupName": "groupA",
+        "GroupName": "groupC",
         "QuickSight_user": [
           {
-            "UserName": "qs-demoA-admin",
+            "UserName": "qs-demoC-admin",
             "Email": "demoA-admin@example.com",
             "Role": "ADMIN"
           }
@@ -15,17 +15,17 @@
     ],
     "buckets": ["AAAAAAbucket-a1", "AAAAAAbucket-a2"],
     "password": "Password123!",
-    "policy_name": "policy_a"
+    "policy_name": "policy_c"
   },
   {
-    "name": "user_b",
+    "name": "user_d",
     "QuickSight_groups": [
       {
-        "GroupName": "groupB"
+        "GroupName": "groupD"
       }
     ],
-    "buckets": ["AAAAAAbucket-b1"],
+    "buckets": ["AAAAAAbucket-d1"],
     "password": "Password123!",
-    "policy_name": "policy_b"
+    "policy_name": "policy_d"
   }
 ]
