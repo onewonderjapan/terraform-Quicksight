@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - feature/develop_QuickSightTest
   pull_request:
     branches:
       - main
@@ -21,7 +22,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
         with:
-          terraform_version: 1.0.0
+          terraform_version: 1.4.6
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
