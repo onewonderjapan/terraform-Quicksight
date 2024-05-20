@@ -9,6 +9,11 @@
             "UserName": "qs-demoC-admin",
             "Email": "demoA-admin@example.com",
             "Role": "ADMIN"
+          },
+          {
+            "UserName": "qs-demoD-admin",
+            "Email": "demoA-admin@example.com",
+            "Role": "ADMIN"
           }
         ]
       }
