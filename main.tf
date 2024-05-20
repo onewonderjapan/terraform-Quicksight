@@ -1,83 +1,118 @@
 provider "aws" {
-  region = "us-west-2"
+  region = "ap-northeast-1"
 }
 
-variable "aws_account_id" {
-  type        = string
-  description = "AWS account ID to be used across the resources."
+data "local_file" "users" {
+  filename = "users.json"
 }
 
-variable "quicksight_users_file" {
-  type        = string
-  default     = "quicksight_users.json"
-  description = "Path to the JSON file containing QuickSight users information."
-}
-
-data "aws_iam_policy_document" "assume_role_policy" {
-  statement {
-    actions = ["sts:AssumeRole"]
-    principals {
-      type        = "Service"
-      identifiers = ["quicksight.amazonaws.com"]
-    }
-  }
-}
-
-resource "aws_iam_role" "quicksight_role" {
-  name               = "ACompanyQuickSightRole"
-  assume_role_policy = data.aws_iam_policy_document.assume_role_policy.json
-}
-
-resource "aws_iam_policy" "quicksight_policy" {
-  name = "ACompanyQuickSightPolicy"
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Effect   = "Allow"
-        Action   = ["s3:*", "athena:*", "quicksight:*"]
-        Resource = "*"
-      }
-    ]
-  })
-}
-
-resource "aws_iam_role_policy_attachment" "quicksight_role_policy_attachment" {
-  role       = aws_iam_role.quicksight_role.name
-  policy_arn = aws_iam_policy.quicksight_policy.arn
-}
-
-# QuickSight グループを作成します。
-resource "aws_quicksight_group" "a_company_group" {
-  group_name     = "ACompanyGroup"
-  aws_account_id = var.aws_account_id
-  namespace      = "default"
-}
-
-data "local_file" "quicksight_users" {
-  filename = var.quicksight_users_file
-}
+data "aws_caller_identity" "current" {}
 
 locals {
-  quicksight_users = jsondecode(data.local_file.quicksight_users.content)
+  users = jsondecode(data.local_file.users.content)
+
+  policies = {
+    for user in local.users : user.name => {
+      "Version" = "2012-10-17",
+      "Statement" = [
+        {
+          "Effect" = "Allow",
+          "Action" = [
+            "s3:*"
+          ],
+          "Resource" = flatten([
+            for bucket in user.buckets : [
+              "arn:aws:s3:::${bucket}",
+              "arn:aws:s3:::${bucket}/*"
+            ]
+          ])
+        },
+        {
+          "Effect" = "Allow",
+          "Action" = [
+            "quicksight:CreateUser",
+            "quicksight:CreateGroup",
+            "quicksight:DescribeGroup",
+            "quicksight:ListGroupMemberships",
+            "quicksight:ListGroups"
+          ],
+          "Resource" = "*"
+        }
+      ]
+    }
+  }
+
+  quicksight_groups = flatten([
+    for user in local.users : [
+      for group in user.QuickSight_groups : {
+        group_name       = group.GroupName
+        user_name        = user.name
+        quicksight_users = lookup(group, "QuickSight_user", [])
+      }
+    ]
+  ])
+
+  quicksight_users = flatten([
+    for user in local.users : [
+      for group in user.QuickSight_groups : [
+        for qs_user in lookup(group, "QuickSight_user", []) : {
+          user_name  = qs_user.UserName
+          email      = qs_user.Email
+          role       = qs_user.Role
+          group_name = group.GroupName
+        }
+      ]
+    ]
+  ])
 }
 
-resource "aws_quicksight_user" "quicksight_users" {
-  for_each       = { for user in local.quicksight_users.users : user.user_name => user }
-  user_name      = each.value.user_name
+resource "aws_iam_user" "user" {
+  for_each = { for user in local.users : user.name => user }
+
+  name          = each.value.name
+  force_destroy = true
+}
+
+resource "aws_iam_policy" "policy" {
+  for_each = local.policies
+
+  name   = each.key
+  policy = jsonencode(each.value)
+}
+
+resource "aws_iam_user_policy_attachment" "user_policy_attachment" {
+  for_each = local.policies
+
+  user       = aws_iam_user.user[each.key].name
+  policy_arn = aws_iam_policy.policy[each.key].arn
+}
+
+resource "aws_quicksight_group" "quicksight_group" {
+  for_each = { for group in local.quicksight_groups : "${group.user_name}-${group.group_name}" => group }
+
+  aws_account_id = data.aws_caller_identity.current.account_id
+  group_name     = each.value.group_name
+  namespace      = "default"
+}
+
+resource "aws_quicksight_user" "quicksight_user" {
+  for_each = { for qs_user in local.quicksight_users : qs_user.user_name => qs_user }
+
+  aws_account_id = data.aws_caller_identity.current.account_id
   email          = each.value.email
-  aws_account_id = var.aws_account_id
-  namespace      = "default"
-  identity_type  = "IAM"
+  identity_type  = "QUICKSIGHT" # 変更
   user_role      = each.value.role
-  iam_arn        = aws_iam_role.quicksight_role.arn
-}
-
-resource "aws_quicksight_group_membership" "group_membership" {
-  for_each       = { for user in local.quicksight_users.users : user.user_name => user }
-  aws_account_id = var.aws_account_id
   namespace      = "default"
-  group_name     = local.quicksight_users.group_name
-  member_name    = each.value.user_name
+  user_name      = each.value.user_name
+  depends_on     = [aws_quicksight_group.quicksight_group]
 }
 
+resource "aws_quicksight_group_membership" "quicksight_group_membership" {
+  for_each = { for qs_user in local.quicksight_users : "${qs_user.user_name}-${qs_user.group_name}" => qs_user }
+
+  aws_account_id = data.aws_caller_identity.current.account_id
+  group_name     = each.value.group_name
+  namespace      = "default"
+  member_name    = each.value.user_name
+  depends_on     = [aws_quicksight_user.quicksight_user]
+}
