@@ -1,36 +1,31 @@
 [
   {
-    "name": "user_h",
+    "name": "CompanyA",
     "QuickSight_groups": [
       {
-        "GroupName": "groupF",
+        "GroupName": "CompanyA",
         "QuickSight_user": [
           {
-            "UserName": "qs-demoC-admin",
-            "Email": "demoA-admin@example.com",
-            "Role": "ADMIN"
-          },
-          {
-            "UserName": "qs-demoD-admin",
-            "Email": "demoA-admin@example.com",
+            "UserName": "CompanyA-admin",
+            "Email": "CompanyA-admin@example.com",
             "Role": "ADMIN"
           }
         ]
       }
     ],
-    "buckets": ["AAAAAAbucket-a1", "AAAAAAbucket-a2"],
+    "buckets": ["CompanyA-s3-bucket"],
     "password": "Password123!",
-    "policy_name": "policy_e"
+    "policy_name": "CompanyA-policy"
   },
   {
-    "name": "user_i",
+    "name": "CompanyC",
     "QuickSight_groups": [
       {
-        "GroupName": "groupG"
+        "GroupName": "CompanyC"
       }
     ],
-    "buckets": ["AAAAAAbucket-d1"],
+    "buckets": ["CompanyC-s3-bucket"],
     "password": "Password123!",
-    "policy_name": "policy_f"
+    "policy_name": "CompanyC-policy"
   }
 ]
