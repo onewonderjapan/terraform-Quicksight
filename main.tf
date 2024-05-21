@@ -12,6 +12,16 @@ resource "aws_iam_policy" "policy" {
   policy = jsonencode(each.value)
 }
 
+resource "aws_s3_bucket" "example" {
+  for_each = { for user in local.users : user.name => user }
+  bucket   = "${lower(replace(each.value.name, "_", "-"))}-s3-bucket"
+
+  tags = {
+    Name        = "My bucket"
+    Environment = "Dev"
+  }
+}
+
 resource "aws_iam_user_policy_attachment" "user_policy_attachment" {
   for_each = local.policies
 
