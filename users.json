@@ -1,31 +1,10 @@
 [
   {
-    "name": "CompanyA",
-    "QuickSight_groups": [
-      {
-        "GroupName": "CompanyA",
-        "QuickSight_user": [
-          {
-            "UserName": "CompanyA-admin",
-            "Email": "CompanyA-admin@example.com",
-            "Role": "ADMIN"
-          }
-        ]
-      }
-    ],
-    "buckets": ["CompanyA-s3-bucket"],
-    "password": "Password123!",
-    "policy_name": "CompanyA-policy"
+    "name": "CompanyC",
+    "password": "Password123!"
   },
   {
-    "name": "CompanyC",
-    "QuickSight_groups": [
-      {
-        "GroupName": "CompanyC"
-      }
-    ],
-    "buckets": ["CompanyC-s3-bucket"],
-    "password": "Password123!",
-    "policy_name": "CompanyC-policy"
+    "name": "CompanyD",
+    "password": "Password123!"
   }
 ]

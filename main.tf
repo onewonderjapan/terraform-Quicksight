@@ -32,7 +32,7 @@ resource "aws_quicksight_user" "quicksight_user" {
 
   aws_account_id = data.aws_caller_identity.current.account_id
   email          = each.value.email
-  identity_type  = "QUICKSIGHT" # 変更
+  identity_type  = "QUICKSIGHT"
   user_role      = each.value.role
   namespace      = "default"
   user_name      = each.value.user_name
@@ -47,4 +47,24 @@ resource "aws_quicksight_group_membership" "quicksight_group_membership" {
   namespace      = "default"
   member_name    = each.value.user_name
   depends_on     = [aws_quicksight_user.quicksight_user]
+}
+resource "aws_quicksight_folder" "example_folder" {
+  for_each = { for user in local.users : user.name => user }
+
+  folder_id = "${each.value.name}-folder-id"
+  name      = each.value.name
+
+  permissions {
+    actions = [
+      "quicksight:CreateFolder",
+      "quicksight:DescribeFolder",
+      "quicksight:UpdateFolder",
+      "quicksight:DeleteFolder",
+      "quicksight:CreateFolderMembership",
+      "quicksight:DeleteFolderMembership",
+      "quicksight:DescribeFolderPermissions",
+      "quicksight:UpdateFolderPermissions",
+    ]
+    principal = aws_quicksight_user.quicksight_user["${each.value.name}-admin"].arn
+  }
 }
