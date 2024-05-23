@@ -78,3 +78,43 @@ resource "aws_quicksight_folder" "example_folder" {
     principal = aws_quicksight_user.quicksight_user["${each.value.name}-admin"].arn
   }
 }
+resource "aws_s3_bucket_object" "manifest" {
+  bucket = "companyc-s3-bucket"
+  key    = "manifest.json"
+  source = "manifest.json"  
+}
+resource "aws_quicksight_data_source" "s3_data_source" {
+  aws_account_id = "566601428909"
+  data_source_id = "s3_data_source_id_test"
+  name           = "S3DataSource"
+  type           = "S3"
+
+  parameters {
+    s3 {
+      manifest_file_location {
+        bucket = "companyc-s3-bucket"
+        key    = "manifest.json"
+      }
+    }
+  }
+
+}
+resource "aws_quicksight_data_set" "example" {
+  data_set_id = "example-id_test"
+  name        = "example-name"
+  import_mode = "SPICE"
+
+  physical_table_map {
+    physical_table_map_id = "example-id"
+    s3_source {
+      data_source_arn = aws_quicksight_data_source.s3_data_source.arn
+      input_columns {
+        name = "Column1"
+        type = "STRING"
+      }
+      upload_settings {
+        format = "CSV"
+      }
+    }
+  }
+}

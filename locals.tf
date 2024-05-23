@@ -31,6 +31,7 @@ locals {
         {
           "Effect" = "Allow",
           "Action" = [
+            "quicksight:*",
             "s3:*"
           ],
           "Resource" = flatten([
@@ -43,7 +44,8 @@ locals {
         {
           "Effect" = "Allow",
           "Action" = [
-            "quicksight:*"
+            "quicksight:*",
+            "s3:*"
           ],
           "Resource" = "*"
         }
