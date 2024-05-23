@@ -1,5 +1,3 @@
-data "local_file" "users" {
-  filename = "users.json"
+data "local_file" "customers_data" {
+  filename = "./customer/customer.json"
 }
-
-data "aws_caller_identity" "current" {}

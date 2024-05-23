@@ -1,0 +1,8 @@
+{
+  "customers": {
+    "companyc": {
+      "bucket_name": "companyc-s3-bucket",
+      "description": ""
+    }
+  }
+}
