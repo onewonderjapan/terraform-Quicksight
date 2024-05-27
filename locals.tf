@@ -3,12 +3,12 @@ locals {
   env        = "dev"
   system     = "backend"
   component  = "quicksight"
-  region     = "ap-northeast-1"
-  account_id = "485361166083"
+  account_id = "566601428909"
   suffix     = ""
 
   customers_all = jsondecode(data.local_file.customers_data.content)["customers"]
   customers = {
     for k, customer in local.customers_all : k => customer
   }
+  bucket_names = [for customer in local.customers_all : customer.bucket_name]
 }

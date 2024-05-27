@@ -1,8 +1,8 @@
 {
   "customers": {
-    "companyc": {
-      "bucket_name": "companyc-s3-bucket",
-      "description": ""
+    "companye": {
+      "bucket_name": "companye-s3-bucket",
+      "region"     : "ap-northeast-1"
     }
   }
 }
