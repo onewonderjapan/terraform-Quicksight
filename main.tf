@@ -8,6 +8,7 @@ module "quicksight" {
   namespace  = "default"
   region     = each.value.region
   s3_bucket  = each.value.bucket_name
+  parent_folder_arn  = aws_quicksight_folder.parent.arn
 }
 resource "aws_iam_policy" "quicksight_s3_policy" {
   name        = "AWSQuickSightS3Policy"
@@ -42,4 +43,24 @@ resource "aws_iam_policy" "quicksight_s3_policy" {
       }
     ]
   })
+}
+resource "aws_quicksight_folder" "parent" {
+  folder_id = "app"
+  name      = "app"
+
+  lifecycle {
+    ignore_changes = [
+        permissions
+    ] 
+  }
+}
+resource "aws_quicksight_folder" "dev" {
+  folder_id = "dev"
+  name      = "dev"
+
+  lifecycle {
+    ignore_changes = [
+        permissions
+    ] 
+  }
 }
