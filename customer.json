@@ -1,0 +1,25 @@
+{
+  "customers": {
+    "onewonderA": {
+      "bucket_name": "mys3bucket-existing-bucket-1"
+    },
+    "onewonderB": {
+      "bucket_name": "mys3bucket-existing-bucket-2"
+    },
+    "onewonderC": {
+      "bucket_name": "mys3bucket-existing-bucket-3"
+    },
+    "onewonderD": {
+      "bucket_name": "mys3bucket-existing-bucket-4"
+    },
+    "onewonderF": {
+      "bucket_name": "mys3bucket-existing-bucket-5"
+    },
+    "onewonderG": {
+      "bucket_name": "mys3bucket-existing-bucket-6"
+    },
+    "onewonderH": {
+      "bucket_name": "mys3bucket-existing-bucket-7"
+    }
+  }
+}

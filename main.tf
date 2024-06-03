@@ -1,19 +1,12 @@
-module "quicksight" {
-  source = "./module/quicksight_resource"
-
-  for_each = local.customers
-
-  account_id = local.account_id
-  name       = each.key
-  namespace  = "default"
-  region     = each.value.region
-  s3_bucket  = each.value.bucket_name
-  parent_folder_arn  = aws_quicksight_folder.parent.arn
+module "s3_buckets" {
+  source      = "./terraform-modules/s3"
+  for_each    = local.customers
+  bucket_name = each.value.bucket_name
 }
-resource "aws_iam_policy" "quicksight_s3_policy" {
-  name        = "AWSQuickSightS3Policy"
-  description = "Grants Amazon QuickSight read permission to Amazon S3 resources"
-  path        = "/service-role/"
+
+resource "aws_iam_policy" "s3_policy" {
+  name = "S3TestPolicy"
+  path = "/service-role/"
   policy = jsonencode({
     "Version" : "2012-10-17",
     "Statement" : [
@@ -23,44 +16,41 @@ resource "aws_iam_policy" "quicksight_s3_policy" {
         "Resource" : "arn:aws:s3:::*"
       },
       {
+        "Sid" : "VisualEditor0",
+        "Effect" : "Allow",
         "Action" : [
           "s3:ListBucket"
         ],
-        "Effect" : "Allow",
         "Resource" : [
           for bucket_name in local.bucket_names : "arn:aws:s3:::${bucket_name}"
-        ]
+        ],
+        "Condition" : {
+          "StringEquals" : {
+            "aws:ResourceTag/Customer" : "true"
+          }
+        }
       },
       {
+        "Sid" : "VisualEditor1",
+        "Effect" : "Allow",
         "Action" : [
           "s3:GetObject",
           "s3:GetObjectVersion"
         ],
-        "Effect" : "Allow",
         "Resource" : [
           for bucket_name in local.bucket_names : "arn:aws:s3:::${bucket_name}/*"
-        ]
+        ],
+        "Condition" : {
+          "StringEquals" : {
+            "aws:ResourceTag/Customer" : "true"
+          }
+        }
       }
     ]
   })
 }
-resource "aws_quicksight_folder" "parent" {
-  folder_id = "app"
-  name      = "app"
 
-  lifecycle {
-    ignore_changes = [
-        permissions
-    ] 
-  }
-}
-resource "aws_quicksight_folder" "dev" {
-  folder_id = "dev"
-  name      = "dev"
-
-  lifecycle {
-    ignore_changes = [
-        permissions
-    ] 
-  }
+resource "aws_iam_user_policy_attachment" "attach_s3_policy" {
+  user       = "S3Test"
+  policy_arn = aws_iam_policy.s3_policy.arn
 }
