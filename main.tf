@@ -11,40 +11,28 @@ resource "aws_iam_policy" "s3_policy" {
     "Version" : "2012-10-17",
     "Statement" : [
       {
+        "Sid" : "ListAllBuckets",
         "Effect" : "Allow",
-        "Action" : "s3:ListAllMyBuckets",
-        "Resource" : "arn:aws:s3:::*"
+        "Action" : "s3:ListAllMyBuckets"
+        "Resource" : "*"
       },
       {
-        "Sid" : "VisualEditor0",
+        "Sid" : "ListSpecificBuckets",
         "Effect" : "Allow",
-        "Action" : [
-          "s3:ListBucket"
+        "Action": [
+                "s3:ListBucket",
+                "s3:GetBucketLocation"
         ],
-        "Resource" : [
-          for bucket_name in local.bucket_names : "arn:aws:s3:::${bucket_name}"
-        ],
-        "Condition" : {
-          "StringEquals" : {
-            "aws:ResourceTag/Customer" : "true"
-          }
-        }
+       "Resource": "arn:aws:s3:::mys3bucket*"
       },
       {
-        "Sid" : "VisualEditor1",
+        "Sid" : "GetObjectFromSpecificBuckets",
         "Effect" : "Allow",
-        "Action" : [
-          "s3:GetObject",
-          "s3:GetObjectVersion"
+        "Action": [
+                "s3:GetObject",
+                "s3:GetObjectVersion"
         ],
-        "Resource" : [
-          for bucket_name in local.bucket_names : "arn:aws:s3:::${bucket_name}/*"
-        ],
-        "Condition" : {
-          "StringEquals" : {
-            "aws:ResourceTag/Customer" : "true"
-          }
-        }
+       "Resource": "arn:aws:s3:::mys3bucket*/*"
       }
     ]
   })
