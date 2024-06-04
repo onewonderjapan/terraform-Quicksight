@@ -24,14 +24,14 @@
     "onewonderI": {
       "bucket_name": "mys3bucket-existing-bucket-8"
     },
-    "onewonderM": {
-      "bucket_name": "mys3bucket-existing-bucket-12"
-    },
     "onewonderK": {
       "bucket_name": "mys3bucket-existing-bucket-10"
     },
     "onewonderL": {
       "bucket_name": "mys3bucket-existing-bucket-11"
+    },
+    "onewonderM": {
+      "bucket_name": "mys3bucket-existing-bucket-12"
     }
   }
 }
