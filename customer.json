@@ -32,6 +32,9 @@
     },
     "onewonderM": {
       "bucket_name": "mys3bucket-existing-bucket-12"
+    },
+    "onewonderN": {
+      "bucket_name": "mys3bucket-existing-bucket-13"
     }
   }
 }
