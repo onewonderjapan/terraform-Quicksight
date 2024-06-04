@@ -4,11 +4,13 @@ on:
   push:
     branches:
       - main
+      - feature/IAM_policy_partition
     paths:
       - '**.tf'
   pull_request:
     branches:
       - main
+      - feature/IAM_policy_partition
 
 jobs:
   terraform:
