@@ -80,9 +80,11 @@ Terrafrom:https://developer.hashicorp.com/terraform/install?product_intent=terra
   <br />
   ターミナルの新しいターミナルをクリックしてコンソール欄でGit Bashを選ぶ
   <br />
-　```sh
-　　$ git clone　https://github.com/onewonderjapan/　　terraform-Quicksight.git
+
+   ```sh
+  $ git clone　https://github.com/onewonderjapan/　　terraform-Quicksight.git
   ```
+<br />
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
 
 ### 実施方法
