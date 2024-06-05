@@ -82,7 +82,7 @@ Terrafrom:https://developer.hashicorp.com/terraform/install?product_intent=terra
   <br />
 
    ```sh
-  $ git clone　https://github.com/onewonderjapan/　　terraform-Quicksight.git
+  $ git clone　https://github.com/onewonderjapan/terraform-Quicksight.git
   ```
 <br />
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
