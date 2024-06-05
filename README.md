@@ -61,7 +61,7 @@ AWS Secret Access Key [****************BSO7]:
 Default region name [ap-northeast-1]:
 Default output format [None]:
   ```
-AWSユーザーのアクセスを設定します。＊Default output format [None]:がそのままをエンターキーしても大丈夫です。
+AWSユーザーのアクセスキーを設定します。＊Default output format [None]:がそのままをエンターキーしても大丈夫です。
 <br />
 Terrafrom:https://developer.hashicorp.com/terraform/install?product_intent=terraform
 <br />
@@ -81,7 +81,7 @@ Terrafrom:https://developer.hashicorp.com/terraform/install?product_intent=terra
   ターミナルの新しいターミナルをクリックしてコンソール欄でGit Bashを選ぶ
   <br />
 　```sh
-$ git clone　https://github.com/onewonderjapan/terraform-Quicksight.git
+　　$ git clone　https://github.com/onewonderjapan/　　terraform-Quicksight.git
   ```
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
 
