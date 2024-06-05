@@ -92,15 +92,35 @@ Terrafrom:https://developer.hashicorp.com/terraform/install?product_intent=terra
 <br />
 S3Testが権限足りないのでまずadminポリシに付けます。
 <br />
-後で
+**customers.jsonファイルの中に重複しないように会社名とバケット名が好きにしてください。
+<br />
+**IAMユーザー(S3Test)を代わる場合は
+```sh
+resource "aws_iam_user_policy_attachment" "attach_s3_policy" {
+  count = length(local.customers_groups)
+  user       = "S3Test"
+  policy_arn = aws_iam_policy.s3_policy[count.index].arn
+}
+ ````
+ リソースのuserが自分ユーザー名をあってください。
+<br />
+後で  初期化
    ```sh
   $ terraform　init
   ````
-  初期化
+プランチェック
   ```sh
   $ terraform　plan
   ````
+実施する
+  ```sh
+  $ terraform　apply
+  ````
+上記の手順でポリシ有効化にしてからS3Testのadminポリシを外れ。
+<br />
+最後新しいポリシーで添付したS3バケットを全部管理できるようになる。
 
+<p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
 
 ## ロードマップ
 - [ ] 言語対応
