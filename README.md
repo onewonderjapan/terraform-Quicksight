@@ -41,7 +41,7 @@
 ### 言語
 <br />
 
-* [![Terraform][Terraform.io]][Terraform-url]
+* [![JQuery][JQuery.com]][JQuery-url]
 
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
 
@@ -52,5 +52,5 @@
 
 ## ロードマップ
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
-[Terraform.io]: https://img.shields.io/badge/Terraform-0769AD?style=for-the-badge&logo=Terraform&logoColor=white
-[Terraform-url]: https://www.terraform.io/
+[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
+[JQuery-url]: https://jquery.com 
