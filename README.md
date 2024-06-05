@@ -4,7 +4,7 @@
     <img src="images/th.jpg" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">terraformでポリシーでs3の権限を割り当てる</h3>
+  <h3 align="center">Terraformでポリシーを使ってS3の権限を割り当てる</h3>
 
   <p align="center">
   </p>
@@ -32,7 +32,7 @@
 ## プロジェクトについて
 <br />
 
-このシステムでは、JSONファイルを使用して会社名対応S3バケットとポリシーを簡単に定義できる。
+このシステムでは、JSONファイルを使用して、会社名に対応するS3バケットとポリシーを簡単に定義できます。。
 <br />
 例）各ポリシーに、10customerに対してs3の権限を割り当てる。
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
@@ -48,9 +48,9 @@
 
 ## 開始方法
 ### インストール
-aws cli:https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html
+AWS CLI: [インストール手順](https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html)
 <br />
-手順書によってaws cliをインストールする
+手順に従ってAWS CLIをインストールします。
 <br />
 例）
   ```sh
@@ -60,7 +60,7 @@ AWS Secret Access Key [****************BSO7]:
 Default region name [ap-northeast-1]:
 Default output format [None]:
   ```
-IAMユーザー(S3Test)のアクセスキーを設定します。＊Default output format [None]:がそのままをエンターキーしても大丈夫です。
+IAMユーザー（S3Test）のアクセスキーを設定します。＊Default output format [None]はそのままエンターキーを押しても大丈夫です
 <br />
 Terrafrom:https://developer.hashicorp.com/terraform/install?product_intent=terraform
 <br />
@@ -71,13 +71,13 @@ Terrafrom:https://developer.hashicorp.com/terraform/install?product_intent=terra
     on windows_amd64
   ```
   <br />
-  手順書によってTerrafromをインストールしてTerrafromのバージョンがあったらインストールで成功でした。
+ 手順に従ってTerraformをインストールし、バージョン確認ができればインストールは成功です。
   <br />
-  上記の二つ手順を終わったらプロジェクトをクーロンする
+ 上記の二つの手順を終えたらプロジェクトをクローンします。
   <br />
-  vscode :https://code.visualstudio.com/downloadをインストールする
+  VS Code: [ダウンロード](https://code.visualstudio.com/download)をインストールします。
   <br />
-  ターミナルの新しいターミナルをクリックしてコンソール欄でGit Bashを選ぶ
+  ターミナルの「新しいターミナル」をクリックし、コンソール欄で「Git Bash」を選びます。
   <br />
 
    ```sh
@@ -87,13 +87,13 @@ Terrafrom:https://developer.hashicorp.com/terraform/install?product_intent=terra
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
 
 ### 実施方法
-今プロジェクトが既存ありIAMユーザー(S3Test)を例にとして説明する
+このプロジェクトは既存のIAMユーザー（S3Test）を例に説明します。
 <br />
-S3Testが権限足りないのでまずadminポリシに付けます。
+S3Testの権限が不足しているので、まずadminポリシーを付与します。
 <br />
-**customers.jsonファイルの中に重複しないように会社名とバケット名が好きにしてください。
+**customers.jsonファイルに重複しないように会社名とバケット名を記入してください。
 <br />
-**IAMユーザー(S3Test)を代わる場合は
+**IAMユーザー（S3Test）を変更する場合は、
 ```sh
 resource "aws_iam_user_policy_attachment" "attach_s3_policy" {
   count = length(local.customers_groups)
@@ -101,23 +101,23 @@ resource "aws_iam_user_policy_attachment" "attach_s3_policy" {
   policy_arn = aws_iam_policy.s3_policy[count.index].arn
 }
  ````
- リソースのuserが自分ユーザー名をあってください。
+ リソースのuserを自身のユーザー名に変更してください。
 <br />
-後で  初期化
+その後、初期化を行います。
    ```sh
   $ terraform　init
   ````
-プランチェック
+プランをチェックします。
   ```sh
   $ terraform　plan
   ````
-実施する
+適用します。
   ```sh
   $ terraform　apply
   ````
-上記の手順でポリシ有効化にしてからS3Testのadminポリシを外れ。
+上記の手順でポリシーを有効化した後、S3Testのadminポリシーを外します。
 <br />
-最後新しいポリシーで添付したS3バケットを全部管理できるようになる。
+新しいポリシーで指定したS3バケットをすべて管理できるようになります。
 
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
 
