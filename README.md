@@ -55,8 +55,8 @@
 
 ## 開始方法
 ### 前提条件
-### ロードマップ
+### インストール
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
 
-## Roadmap
+## ロードマップ
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
