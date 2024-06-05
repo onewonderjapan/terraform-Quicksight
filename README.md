@@ -14,23 +14,23 @@
   <summary>目次</summary>
   <ol>
     <li>
-      <a href="# プロジェクトについて">プロジェクトについて</a>
+      <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="# 組み込み">組み込み</a></li>
+        <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
     <li>
-      <a href="# はじめに">はじめに</a>
+      <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">前提</a></li>
-        <li><a href="#installation">インストール</a></li>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="# ロードマップ">ロードマップ</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
   </ol>
 </details>
 
-## プロジェクトについて
+## About The Project
 <br />
 <br />
 <br />
@@ -41,7 +41,7 @@
 <br />
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
 
-## 組み込み
+### Built With
 <br />
 <br />
 <br />
@@ -53,8 +53,10 @@
 <br />
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
 
-## はじめに
+## Getting Started
+### Prerequisites
+### Installation
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
 
-## ロードマップ
+## Roadmap
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
