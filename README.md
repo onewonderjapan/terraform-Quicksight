@@ -88,6 +88,15 @@ Terrafrom:https://developer.hashicorp.com/terraform/install?product_intent=terra
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
 
 ### 実施方法
+今プロジェクトが既存ありIAMユーザー(S3Test)を例にとして説明する
+<br />
+S3Testが権限足りないのでまずadminポリシに付けます。
+<br />
+後、
+   ```sh
+  $ terraform　init
+  ````
+
 
 
 ## ロードマップ
