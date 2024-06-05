@@ -16,17 +16,17 @@
     <li>
       <a href="#プロジェクトについて">プロジェクトについて</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#ビルド">ビルド</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#開始方法">開始方法</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#前提条件">前提条件</a></li>
+        <li><a href="#インストール">インストール</a></li>
       </ul>
     </li>
-    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#ロードマップ">ロードマップ</a></li>
   </ol>
 </details>
 
@@ -41,7 +41,7 @@
 <br />
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
 
-### Built With
+### ビルド
 <br />
 <br />
 <br />
@@ -53,9 +53,9 @@
 <br />
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
 
-## Getting Started
-### Prerequisites
-### Installation
+## 開始方法
+### 前提条件
+### ロードマップ
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
 
 ## Roadmap
