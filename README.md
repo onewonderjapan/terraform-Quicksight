@@ -4,7 +4,7 @@
     <img src="images/th.jpg" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">terraform-Quicksight</h3>
+  <h3 align="center">terraformでポリシーでs3の権限を割り当てる</h3>
 
   <p align="center">
    test
@@ -49,8 +49,12 @@
 
 ## 開始方法
 ### 前提条件
+
 ### インストール
+
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
 
 ## ロードマップ
+- [ ] 多言語対応
+    - [ ] 日本語
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
