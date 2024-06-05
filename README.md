@@ -7,7 +7,6 @@
   <h3 align="center">terraformでポリシーでs3の権限を割り当てる</h3>
 
   <p align="center">
-   test
   </p>
 </div>
 <details>
@@ -61,7 +60,7 @@ AWS Secret Access Key [****************BSO7]:
 Default region name [ap-northeast-1]:
 Default output format [None]:
   ```
-AWSユーザーのアクセスキーを設定します。＊Default output format [None]:がそのままをエンターキーしても大丈夫です。
+IAMユーザー(S3Test)のアクセスキーを設定します。＊Default output format [None]:がそのままをエンターキーしても大丈夫です。
 <br />
 Terrafrom:https://developer.hashicorp.com/terraform/install?product_intent=terraform
 <br />
