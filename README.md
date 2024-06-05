@@ -14,7 +14,7 @@
   <summary>目次</summary>
   <ol>
     <li>
-      <a href="#about-the-project">The Project</a>
+      <a href="#プロジェクトについて">プロジェクトについて</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
@@ -30,7 +30,7 @@
   </ol>
 </details>
 
-## About The Project
+## プロジェクトについて
 <br />
 <br />
 <br />
