@@ -52,5 +52,5 @@
 
 ## ロードマップ
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
-[Terraform.com]: https://img.shields.io/badge/Terraform-0769AD?style=for-the-badge&logo=Terraform&logoColor=white
+[Terraform.io]: https://img.shields.io/badge/Terraform-0769AD?style=for-the-badge&logo=Terraform&logoColor=white
 [Terraform-url]: https://www.terraform.io/
