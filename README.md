@@ -49,21 +49,36 @@
 
 ## 開始方法
 ### インストール
-*aws cli:https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html
+aws cli:https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html
 <br />
-*Terrafrom:https://developer.hashicorp.com/terraform/install?product_intent=terraform
+手順書によってaws cliをインストールする
 <br />
- 例）npm
+例）
+  ```sh
+C:\Users\王 星然>aws configure
+AWS Access Key ID [****************IHCL]:
+AWS Secret Access Key [****************BSO7]:
+Default region name [ap-northeast-1]:
+Default output format [None]:
+  ```
+AWSユーザーのアクセスを設定します。＊Default output format [None]:がそのままをエンターキーしても大丈夫です。
+<br />
+Terrafrom:https://developer.hashicorp.com/terraform/install?product_intent=terraform
+<br />
+ 例）Terrafrom
   ```sh
   C:\Users\xxx>terraform version
    Terraform v1.8.2
     on windows_amd64
   ```
   <br />
-  Terrafromのバージョンがあったらインストールで成功でした。
+  手順書によってTerrafromをインストールしてTerrafromのバージョンがあったらインストールで成功でした。
+  <br />
+  上記の
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
 
 ### 実施方法
+
 
 ## ロードマップ
 - [ ] 言語対応
