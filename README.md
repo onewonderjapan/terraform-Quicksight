@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 <div align="center">
-  <a href="https://github.com/onewonderjapan/terraform-Quicksight">
-    <img src="images/th.jpg" alt="Logo" width="80" height="80">
+  <a href="https://www.terraform.io/">
+    <img src="https://img.shields.io/badge/Terraform-0769AD?style=for-the-badge&logo=Terraform&logoColor=white" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">terraform-Quicksight</h3>
@@ -41,7 +41,9 @@
 ### 言語
 <br />
 
-* [![JQuery][JQuery.com]][JQuery-url]
+*  <a href="https://github.com/onewonderjapan/terraform-Quicksight">
+    <img src="images/th.jpg" alt="Logo" width="80" height="80">
+  </a>
 
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
 
@@ -52,5 +54,3 @@
 
 ## ロードマップ
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
