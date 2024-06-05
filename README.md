@@ -42,7 +42,7 @@
 <br />
 
 * <a href="https://www.terraform.io/">
-    <img src="https://img.shields.io/badge/Terraform-0769AD?style=for-the-badge&logo=Terraform&logoColor=white" alt="Logo" width="80" height="40">
+    <img src="https://img.shields.io/badge/Terraform-0769AD?style=for-the-badge&logo=Terraform&logoColor=white" alt="Logo" width="80" height="20">
   </a>
 
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
