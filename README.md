@@ -55,7 +55,7 @@ aws cli:https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-i
 <br />
 例）
   ```sh
-C:\Users\王 星然>aws configure
+C:\Users\xxx>aws configure
 AWS Access Key ID [****************IHCL]:
 AWS Secret Access Key [****************BSO7]:
 Default region name [ap-northeast-1]:
@@ -74,7 +74,15 @@ Terrafrom:https://developer.hashicorp.com/terraform/install?product_intent=terra
   <br />
   手順書によってTerrafromをインストールしてTerrafromのバージョンがあったらインストールで成功でした。
   <br />
-  上記の
+  上記の二つ手順を終わったらプロジェクトをクーロンする
+  <br />
+  vscode :https://code.visualstudio.com/downloadをインストールする
+  <br />
+  ターミナルの新しいターミナルをクリックしてコンソール欄でGit Bashを選ぶ
+  <br />
+　```sh
+$ git clone　https://github.com/onewonderjapan/terraform-Quicksight.git
+  ```
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
 
 ### 実施方法
