@@ -14,19 +14,19 @@
   <summary>目次</summary>
   <ol>
     <li>
-      <a href="#about-the-project">プロジェクトについて</a>
+      <a href="# プロジェクトについて">プロジェクトについて</a>
       <ul>
-        <li><a href="#built-with">組み込み</a></li>
+        <li><a href="# 組み込み">組み込み</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">はじめに</a>
+      <a href="# はじめに">はじめに</a>
       <ul>
         <li><a href="#prerequisites">前提</a></li>
         <li><a href="#installation">インストール</a></li>
       </ul>
     </li>
-    <li><a href="#roadmap">ロードマップ</a></li>
+    <li><a href="# ロードマップ">ロードマップ</a></li>
   </ol>
 </details>
 
