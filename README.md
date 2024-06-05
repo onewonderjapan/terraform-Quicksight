@@ -16,7 +16,7 @@
     <li>
       <a href="#プロジェクトについて">プロジェクトについて</a>
       <ul>
-        <li><a href="#ビルド">ビルド</a></li>
+        <li><a href="#言語">言語</a></li>
       </ul>
     </li>
     <li>
@@ -32,25 +32,17 @@
 
 ## プロジェクトについて
 <br />
+
+このシステムでは、JSONファイルを使用して会社名対応S3バケットとポリシーを簡単に定義できる。
 <br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+例）各ポリシーに、10customerに対してs3の権限を割り当てる。
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
 
-### ビルド
+### 言語
 <br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+
+* [![Terraform][Terraform.com]][Terraform-url]
+
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
 
 ## 開始方法
