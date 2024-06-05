@@ -30,7 +30,7 @@
   </ol>
 </details>
 
-## The Project
+## About The Project
 <br />
 <br />
 <br />
