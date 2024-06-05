@@ -41,7 +41,7 @@
 ### 言語
 <br />
 
-* [![Terraform][Terraform.com]][Terraform-url]
+* [![Terraform][terraform.io]][Terraform-url]
 
 <p align="right">(<a href="#readme-top">Topへ戻り</a>)</p>
 
