@@ -92,11 +92,14 @@ Terrafrom:https://developer.hashicorp.com/terraform/install?product_intent=terra
 <br />
 S3Testが権限足りないのでまずadminポリシに付けます。
 <br />
-後、
+後で
    ```sh
   $ terraform　init
   ````
-
+  初期化
+  ```sh
+  $ terraform　plan
+  ````
 
 
 ## ロードマップ
